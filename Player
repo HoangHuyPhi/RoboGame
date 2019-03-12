@@ -1,0 +1,22 @@
+using System;
+using SplashKitSDK;
+
+public class Player
+{
+        private Bitmap _PlayerBitmap;
+        public double X {
+            get;
+            private set;
+            haha
+        }
+        public double Y {
+            get;
+            private set;
+        }
+        public int Width {
+            get 
+            {
+                return _PlayerBitmap.Width;
+            }
+        }
+}

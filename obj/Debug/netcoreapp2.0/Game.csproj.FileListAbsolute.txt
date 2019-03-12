@@ -1,0 +1,11 @@
+/Users/phihoanghuy/Documents/Code/Game/obj/Debug/netcoreapp2.0/Game.csprojAssemblyReference.cache
+/Users/phihoanghuy/Documents/Code/Game/obj/Debug/netcoreapp2.0/Game.csproj.CoreCompileInputs.cache
+/Users/phihoanghuy/Documents/Code/Game/obj/Debug/netcoreapp2.0/Game.AssemblyInfoInputs.cache
+/Users/phihoanghuy/Documents/Code/Game/obj/Debug/netcoreapp2.0/Game.AssemblyInfo.cs
+/Users/phihoanghuy/Documents/Code/Game/bin/Debug/netcoreapp2.0/Game.deps.json
+/Users/phihoanghuy/Documents/Code/Game/bin/Debug/netcoreapp2.0/Game.runtimeconfig.json
+/Users/phihoanghuy/Documents/Code/Game/bin/Debug/netcoreapp2.0/Game.runtimeconfig.dev.json
+/Users/phihoanghuy/Documents/Code/Game/bin/Debug/netcoreapp2.0/Game.dll
+/Users/phihoanghuy/Documents/Code/Game/bin/Debug/netcoreapp2.0/Game.pdb
+/Users/phihoanghuy/Documents/Code/Game/obj/Debug/netcoreapp2.0/Game.dll
+/Users/phihoanghuy/Documents/Code/Game/obj/Debug/netcoreapp2.0/Game.pdb
