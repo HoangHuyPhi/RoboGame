@@ -1,24 +1,20 @@
 using System;
 using SplashKitSDK;
 
-public class Robot {
-    private double X { get; set; }
-    private double Y { get; set; }
-    private Color MainColor { get; set; }
-    private Vector2D Velocity { get; set; }
+abstract public class Robot {
+    public double X { get; set; }
+    public double Y { get; set; }
+    public Color MainColor { get; set; }
+    public Vector2D Velocity { get; set; }
     public Circle CollisionCircle {
         get {
             return SplashKit.CircleAt (X, Y, 20);
         }
     }
-    public bool Quit {
-        get;
-        private set;
-    }
-    private int Width {
+    public int Width {
         get { return 50; }
     }
-    private int Height {
+    public int Height {
         get { return 50; }
     }
 
@@ -45,7 +41,19 @@ public class Robot {
         // Set the speed and assign to the Velocity
         Velocity = SplashKit.VectorMultiply (dir, SPEED);
     }
-    public void Draw () {
+    abstract public void Draw ();
+    public void Update () {
+        X = X + Velocity.X;
+        Y = Y + Velocity.Y;
+    }
+    public bool isOffScreen (Window gameWindow) {
+        if (X < -Width || X > gameWindow.Width || Y < -Height || Y > gameWindow.Height) return true;
+        return false;
+    }
+}
+class Boxy : Robot {
+    public Boxy (Window gameWindow, Player player) : base (gameWindow, player) { }
+    override public void Draw () {
         double leftX, rightX, eyeY, mouthY;
         leftX = X + 12;
         rightX = X + 27;
@@ -57,12 +65,31 @@ public class Robot {
         SplashKit.FillRectangle (MainColor, leftX, mouthY, 25, 10);
         SplashKit.FillRectangle (MainColor, leftX + 2, mouthY + 2, 21, 6);
     }
-    public void Update () {
-        X = X + Velocity.X;
-        Y = Y + Velocity.Y;
+}
+class Roundy : Robot {
+    public Roundy (Window gameWindow, Player player) : base (gameWindow, player) { }
+    public override void Draw () {
+        double leftX, midX, rightX;
+        double midY, eyeY, mouthY;
+        leftX = X + 17;
+        midX = X + 25;
+        rightX = X + 33;
+        midY = Y + 25;
+        eyeY = Y + 20;
+        mouthY = Y + 35;
+        SplashKit.FillCircle (Color.White, midX, midY, 25);
+        SplashKit.DrawCircle (Color.Gray, midX, midY, 25);
+        SplashKit.FillCircle (MainColor, leftX, eyeY, 5);
+        SplashKit.FillCircle (MainColor, rightX, eyeY, 5);
+        SplashKit.FillEllipse (Color.Gray, X, eyeY, 50, 30);
+        SplashKit.DrawLine (Color.Black, X, mouthY, X + 50, Y + 35);
     }
-    public bool isOffScreen (Window gameWindow) {
-        if (X < -Width || X > gameWindow.Width || Y < -Height || Y > gameWindow.Height) return true;
-        return false;
+}
+class Octopus : Robot {
+    public Octopus (Window gameWindow, Player player) : base (gameWindow, player) { }
+    public override void Draw () {
+        Bitmap _OctopusBitMap;
+       _OctopusBitMap = new Bitmap ("Octopus", "Monster.png");
+       SplashKit.DrawBitmap (_OctopusBitMap, X, Y);
     }
 }
